@@ -13,6 +13,17 @@
 # expected fields in the configuration file for this engine
 configuration:
 
+    settings_hook:
+        type: hook
+        description: Hook for customizing settings and behavior.
+        default_value: '{self}/settings.py'
+
+    events_hook:
+        type: hook
+        description: Hook for adding extra logic and
+                     customization during the different submission stages.
+        default_value: '{self}/events.py'
+
 # this app works in all engines - it does not contain 
 # any host application specific commands
 supported_engines: 
@@ -21,7 +32,7 @@ supported_engines:
 requires_shotgun_fields:
         
 # More verbose description of this item 
-display_name: "Shotgun Pipeline Toolkit Starter"
+display_name: "Upload to Review"
 description: "Template App to quickly get up and running with the Shotgun Pipeline Toolkit."
 
 # Required minimum versions for this item to run
@@ -31,4 +42,5 @@ requires_engine_version:
 
 # the frameworks required to run this app
 frameworks:
-    
+    - {"name": "tk-framework-qtwidgets", "version": "v2.x.x", "minimum_version": "v2.7.0"}
+    - {"name": "tk-framework-shotgunutils", "version": "v5.x.x"}
